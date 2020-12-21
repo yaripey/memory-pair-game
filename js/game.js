@@ -81,7 +81,7 @@ Game.prototype.startGame = function (scenesArray) {
 
 Game.prototype.startMusic = function () {
   this.music = document.createElement('audio')
-  this.music.setAttribute('src', '../src/music.mp3')
+  this.music.setAttribute('src', 'src/music.mp3')
   this.music.setAttribute('loop', '')
   this.music.volume = 0.05
   document.querySelector('body').appendChild(this.music)
