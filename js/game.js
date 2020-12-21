@@ -2,17 +2,16 @@ import { Element, getElementName } from './elements.js'
 import { showArrayOfElements, shuffleArray, selectProperTarget } from './utility.js'
 import { congratulations } from './scenes.js'
 
+// The main game class
 const Game = function () {
-  this.currentOpened = null
-  // When you open a pair, you get score.
-  this.score = 0;
 
-  // When you open different cards, your fail counter will rise.
-  this.failedTries = 0;
+  // Stores element that is opened right now
+  this.currentOpened = null
 
   // Amount of pairs of cards;
   this.amountOfPairs = 16 / 2;
 
+  // Scene counter, initial value is -1 because the function increments it at first.
   this.currentScene = -1;
 
   this.mainContainer = document.querySelector('.container')
@@ -20,8 +19,8 @@ const Game = function () {
   this.musicMuted = false;
 }
 
+// Function for the elements array initialisation
 Game.prototype.initiateElements = function () {
-  // Creating cards
   const preShuffleElements = [];
   for (let i = 0; i < this.amountOfPairs; i++) {
     const currentElement = getElementName()
@@ -34,6 +33,8 @@ Game.prototype.initiateElements = function () {
 
 }
 
+// Game initialisation function
+// Also stores the main game logic
 Game.prototype.startGame = function (scenesArray) {
   this.initiateElements()
 
@@ -83,6 +84,7 @@ Game.prototype.startGame = function (scenesArray) {
   this.nextScene()
 }
 
+// Creation and start of the background music and mute button
 Game.prototype.startMusic = function () {
   this.music = document.createElement('audio')
   this.music.setAttribute('src', 'src/music.mp3')
@@ -105,6 +107,7 @@ Game.prototype.startMusic = function () {
   document.querySelector('body').appendChild(this.muteButton)
 }
 
+// Mute and unmute functions
 Game.prototype.muteMusic = function () {
   this.music.volume = 0;
   this.musicMuted = true;
@@ -115,6 +118,7 @@ Game.prototype.unmuteMusic = function () {
   this.musicMuted = false;
 }
 
+// Function that serves for scene shifting purposes
 Game.prototype.nextScene = function () {
   if (this.currentScene !== -1) {
     this.scenes[this.currentScene].container.classList.toggle('prepared')

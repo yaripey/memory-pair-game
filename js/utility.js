@@ -10,7 +10,6 @@ const shuffleArray = function (arr) {
   return arr.sort(function () { return 0.5 - Math.random() });
 }
 
-
 const selectProperTarget = (currentTarget) => {
   if (currentTarget === document.querySelector('body')) {
     return false;
