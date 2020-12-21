@@ -21,3 +21,5 @@ const selectProperTarget = (currentTarget) => {
     return selectProperTarget(currentTarget.parentNode)
   }
 }
+
+export { showArrayOfElements, shuffleArray, selectProperTarget }

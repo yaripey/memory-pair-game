@@ -1,3 +1,7 @@
+import { Element, getElementName } from './elements.js'
+import { showArrayOfElements, shuffleArray, selectProperTarget } from './utility.js'
+import { congratulations } from './scenes.js'
+
 const Game = function () {
   this.currentOpened = null
   // When you open a pair, you get score.
@@ -33,7 +37,7 @@ Game.prototype.initiateElements = function () {
 Game.prototype.startGame = function (scenesArray) {
   this.initiateElements()
 
-  mainGame = new Scene()
+  const mainGame = new Scene()
 
   mainGame.mainBlock = document.createElement('div')
   mainGame.mainBlock.setAttribute('class', 'game-block')
@@ -148,3 +152,5 @@ Scene.prototype.initiate = function () {
 Scene.prototype.close = function () {
   this.container.classList.add('closed')
 }
+
+export { Scene, Game }

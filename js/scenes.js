@@ -1,3 +1,6 @@
+import { Scene } from './game.js'
+import { game } from './main.js'
+
 // Warning scene, comes first
 const warning = new Scene()
 
@@ -60,3 +63,5 @@ congratulations.mainText.textContent = "Mission complete, Traveler! Now that the
 congratulations.background.appendChild(congratulations.paimon)
 congratulations.background.appendChild(congratulations.mainText)
 congratulations.container.appendChild(congratulations.background)
+
+export { warning, greetings, congratulations }

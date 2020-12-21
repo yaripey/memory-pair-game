@@ -64,3 +64,5 @@ const getElementName = function () {
   const num = Math.floor(Math.random() * (elementNames.length))
   return elementNames[num]
 }
+
+export { Element, getElementName }
