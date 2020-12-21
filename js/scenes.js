@@ -26,7 +26,7 @@ greetings.background.setAttribute('class', 'greetings-background')
 
 greetings.paimon = document.createElement('img')
 greetings.paimon.setAttribute('class', 'greetings-paimon')
-greetings.paimon.setAttribute('src', '../images/paimon.png')
+greetings.paimon.setAttribute('src', 'images/paimon.png')
 
 greetings.mainText = document.createElement('div')
 greetings.mainText.setAttribute('class', 'greetings-main-text')
@@ -51,7 +51,7 @@ congratulations.background.setAttribute('class', 'congratulations-background')
 
 congratulations.paimon = document.createElement('img')
 congratulations.paimon.setAttribute('class', 'congratulations-paimon')
-congratulations.paimon.setAttribute('src', '../images/paimon.png')
+congratulations.paimon.setAttribute('src', 'images/paimon.png')
 
 congratulations.mainText = document.createElement('div')
 congratulations.mainText.setAttribute('class', 'congratulations-main-text')

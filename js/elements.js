@@ -24,7 +24,7 @@ Element.prototype.makeElement = function () {
   back.setAttribute('class', 'back')
 
   const newImage = document.createElement('img')
-  newImage.setAttribute('src', `../images/${this.name}.png`)
+  newImage.setAttribute('src', `images/${this.name}.png`)
 
   back.appendChild(newImage)
 
