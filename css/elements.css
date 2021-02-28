@@ -47,7 +47,7 @@ html, body, .game, .container {
   flex-wrap: wrap;
 }
 
-.dissapeared {
+.disappeared {
   opacity: 0;
   transition: 0.3s ease;
   cursor: default;

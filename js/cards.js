@@ -1,18 +1,16 @@
-const Element = function (name, id) {
-  // Information about card
+const Card = function (name, id) {
   this.name = name;
   this.id = id;
 
-  // Information about card's state
   this.opened = false;
   this.present = true;
 }
 
-Element.prototype.makeElement = function () {
-  const newElement = document.createElement('div')
-  newElement.setAttribute('class', `${this.name} element flip-container`)
-  newElement.setAttribute('ontouchstart', 'this.classList.toggle(\'hover\')');
-  newElement.setAttribute('id', this.id)
+Card.prototype.makeCard = function () {
+  const newCard = document.createElement('div')
+  newCard.setAttribute('class', `${this.name} element flip-container`)
+  newCard.setAttribute('ontouchstart', 'this.classList.toggle(\'hover\')');
+  newCard.setAttribute('id', this.id)
 
   const flipper = document.createElement('div')
   flipper.setAttribute('class', 'flipper')
@@ -31,14 +29,14 @@ Element.prototype.makeElement = function () {
   flipper.appendChild(front)
   flipper.appendChild(back)
 
-  newElement.appendChild(flipper)
+  newCard.appendChild(flipper)
 
-  this.html = newElement;
+  this.html = newCard;
 
-  return newElement;
+  return newCard;
 }
 
-Element.prototype.peek = function () {
+Card.prototype.peek = function () {
   if (this.opened === false) {
     this.opened = true;
     this.html.classList.add('opened')
@@ -50,19 +48,19 @@ Element.prototype.peek = function () {
   }
 }
 
-Element.prototype.dissapear = function () {
+Card.prototype.disappear = function () {
   this.present = false;
   setTimeout(() => {
-    this.html.classList.add('dissapeared')
+    this.html.classList.add('disappeared')
   }, 500)
 }
 
 // This function returns a random element name.
 // Used for creating an array of cards.
-const getElementName = function () {
-  const elementNames = ['anemo', 'cryo', 'dendro', 'electro', 'geo', 'hydro', 'pyro']
-  const num = Math.floor(Math.random() * (elementNames.length))
-  return elementNames[num]
+const getCardName = function () {
+  const cardNames = ['anemo', 'cryo', 'dendro', 'electro', 'geo', 'hydro', 'pyro']
+  const num = Math.floor(Math.random() * (cardNames.length))
+  return cardNames[num]
 }
 
-export { Element, getElementName }
+export { Card, getCardName }

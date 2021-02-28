@@ -9,7 +9,7 @@ warning.background.setAttribute('class', 'warning-background')
 
 warning.mainText = document.createElement('div')
 warning.mainText.setAttribute('class', 'warning-main-text')
-warning.mainText.textContent = 'Disclamer! All right about Genshin Impact trademarks belong to Mihoyo. This project war created purely for learning purposes.'
+warning.mainText.textContent = 'Disclaimer! All rights about Genshin Impact trademarks belong to Mihoyo. This project was created purely for learning purposes.'
 
 warning.closeButton = document.createElement('button')
 warning.closeButton.setAttribute('class', 'warning-close-button')
