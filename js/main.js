@@ -1,8 +1,5 @@
-import { warning, greetings } from './scenes.js'
-import { game } from './game.js'
+import { nextScene } from './gameScript.js'
+import { createMusic } from './music.js'
 
-const script = [warning, greetings]
-
-game.startGame(script);
-
-export { game };
+nextScene()
+createMusic()

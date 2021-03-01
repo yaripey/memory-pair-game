@@ -1,9 +1,10 @@
+const cardFlipDelay = 500
+
 const Card = function (name, id) {
   this.name = name;
   this.id = id;
-
-  this.opened = false;
-  this.present = true;
+  this.isOpened = false;
+  this.isPresent = true;
 }
 
 Card.prototype.makeCard = function () {
@@ -11,52 +12,39 @@ Card.prototype.makeCard = function () {
   newCard.setAttribute('class', `${this.name} element flip-container`)
   newCard.setAttribute('ontouchstart', 'this.classList.toggle(\'hover\')');
   newCard.setAttribute('id', this.id)
-
-  const flipper = document.createElement('div')
-  flipper.setAttribute('class', 'flipper')
-
-  const front = document.createElement('div')
-  front.setAttribute('class', 'front')
-
-  const back = document.createElement('back')
-  back.setAttribute('class', 'back')
-
-  const newImage = document.createElement('img')
-  newImage.setAttribute('src', `images/${this.name}.png`)
-
-  back.appendChild(newImage)
-
-  flipper.appendChild(front)
-  flipper.appendChild(back)
-
-  newCard.appendChild(flipper)
-
+  newCard.innerHTML = `
+    <div class="flipper">
+      <div class="front">
+      
+      </div>
+      <div class="back">
+        <img src="images/${this.name}.png">
+      </div>
+    </div>
+  `
   this.html = newCard;
-
   return newCard;
 }
 
 Card.prototype.peek = function () {
-  if (this.opened === false) {
-    this.opened = true;
+  if (this.isOpened === false) {
+    this.isOpened = true;
     this.html.classList.add('opened')
   } else {
-    this.opened = false;
+    this.isOpened = false;
     setTimeout(() => {
       this.html.classList.remove('opened')
-    }, 500)
+    }, cardFlipDelay)
   }
 }
 
 Card.prototype.disappear = function () {
-  this.present = false;
+  this.isPresent = false;
   setTimeout(() => {
     this.html.classList.add('disappeared')
-  }, 500)
+  }, cardFlipDelay)
 }
 
-// This function returns a random element name.
-// Used for creating an array of cards.
 const getCardName = function () {
   const cardNames = ['anemo', 'cryo', 'dendro', 'electro', 'geo', 'hydro', 'pyro']
   const num = Math.floor(Math.random() * (cardNames.length))
